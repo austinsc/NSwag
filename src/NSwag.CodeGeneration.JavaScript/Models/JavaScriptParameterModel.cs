@@ -13,11 +13,11 @@ using NSwag.CodeGeneration.Models;
 namespace NSwag.CodeGeneration.JavaScript.Models
 {
     /// <summary>The TypeScript parameter model.</summary>
-    public class TypeScriptParameterModel : ParameterModelBase
+    public class JavaScriptParameterModel : ParameterModelBase
     {
         private readonly SwaggerToJavaScriptClientGeneratorSettings _settings;
 
-        /// <summary>Initializes a new instance of the <see cref="TypeScriptParameterModel" /> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="JavaScriptParameterModel" /> class.</summary>
         /// <param name="parameterName">Name of the parameter.</param>
         /// <param name="variableName">Name of the variable.</param>
         /// <param name="typeName">The type name.</param>
@@ -26,7 +26,7 @@ namespace NSwag.CodeGeneration.JavaScript.Models
         /// <param name="settings">The settings.</param>
         /// <param name="generator">The client generator base.</param>
         /// <param name="typeResolver">The type resolver.</param>
-        public TypeScriptParameterModel(
+        public JavaScriptParameterModel(
             string parameterName,
             string variableName,
             string typeName,

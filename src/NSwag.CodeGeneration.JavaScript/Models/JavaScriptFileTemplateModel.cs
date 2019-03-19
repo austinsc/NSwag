@@ -13,7 +13,7 @@ using NJsonSchema.CodeGeneration.TypeScript;
 namespace NSwag.CodeGeneration.JavaScript.Models
 {
     /// <summary>The TypeScript file template model.</summary>
-    public class TypeScriptFileTemplateModel
+    public class JavaScriptFileTemplateModel
     {
         private readonly SwaggerToJavaScriptClientGeneratorSettings _settings;
         private readonly TypeScriptTypeResolver _resolver;
@@ -21,14 +21,14 @@ namespace NSwag.CodeGeneration.JavaScript.Models
         private readonly SwaggerDocument _document;
         private readonly TypeScriptExtensionCode _extensionCode;
 
-        /// <summary>Initializes a new instance of the <see cref="TypeScriptFileTemplateModel" /> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="JavaScriptFileTemplateModel" /> class.</summary>
         /// <param name="clientCode">The client code.</param>
         /// <param name="clientClasses">The client classes.</param>
         /// <param name="document">The Swagger document.</param>
         /// <param name="extensionCode">The extension code.</param>
         /// <param name="settings">The settings.</param>
         /// <param name="resolver">The resolver.</param>
-        public TypeScriptFileTemplateModel(
+        public JavaScriptFileTemplateModel(
             string clientCode,
             IEnumerable<string> clientClasses,
             SwaggerDocument document,
@@ -45,11 +45,11 @@ namespace NSwag.CodeGeneration.JavaScript.Models
 
             this.Types = this.GenerateDtoTypes();
             this.ExtensionCodeBottom = this.GenerateExtensionCodeAfter();
-            this.Framework = new TypeScriptFrameworkModel(settings);
+            this.Framework = new JavaScriptFrameworkModel(settings);
         }
 
         /// <summary>Gets framework specific information.</summary>
-        public TypeScriptFrameworkModel Framework { get; set; }
+        public JavaScriptFrameworkModel Framework { get; set; }
 
         /// <summary>Gets a value indicating whether to generate client classes.</summary>
         public bool GenerateClientClasses => this._settings.GenerateClientClasses;

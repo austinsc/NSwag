@@ -13,23 +13,23 @@ using NJsonSchema.CodeGeneration.TypeScript;
 namespace NSwag.CodeGeneration.JavaScript.Models
 {
     /// <summary>The TypeScript client template model.</summary>
-    public class TypeScriptClientTemplateModel
+    public class JavaScriptClientTemplateModel
     {
         private readonly TypeScriptExtensionCode _extensionCode;
         private readonly SwaggerToJavaScriptClientGeneratorSettings _settings;
         private readonly SwaggerDocument _document;
 
-        /// <summary>Initializes a new instance of the <see cref="TypeScriptClientTemplateModel" /> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="JavaScriptClientTemplateModel" /> class.</summary>
         /// <param name="controllerName">Name of the controller.</param>
         /// <param name="controllerClassName">Name of the controller.</param>
         /// <param name="operations">The operations.</param>
         /// <param name="extensionCode">The extension code.</param>
         /// <param name="document">The Swagger document.</param>
         /// <param name="settings">The settings.</param>
-        public TypeScriptClientTemplateModel(
+        public JavaScriptClientTemplateModel(
             string controllerName,
             string controllerClassName,
-            IEnumerable<TypeScriptOperationModel> operations,
+            IEnumerable<JavaScriptOperationModel> operations,
             TypeScriptExtensionCode extensionCode,
             SwaggerDocument document,
             SwaggerToJavaScriptClientGeneratorSettings settings)
@@ -42,11 +42,11 @@ namespace NSwag.CodeGeneration.JavaScript.Models
             this.Operations = operations;
 
             this.BaseClass = this._settings.ClientBaseClass?.Replace("{controller}", controllerName);
-            this.Framework = new TypeScriptFrameworkModel(settings);
+            this.Framework = new JavaScriptFrameworkModel(settings);
         }
 
         /// <summary>Gets framework specific information.</summary>
-        public TypeScriptFrameworkModel Framework { get; set; }
+        public JavaScriptFrameworkModel Framework { get; set; }
 
         /// <summary>Gets the class name.</summary>
         public string Class { get; }
@@ -88,7 +88,7 @@ namespace NSwag.CodeGeneration.JavaScript.Models
         public bool HasOperations => this.Operations.Any();
 
         /// <summary>Gets the operations.</summary>
-        public IEnumerable<TypeScriptOperationModel> Operations { get; }
+        public IEnumerable<JavaScriptOperationModel> Operations { get; }
 
         /// <summary>Gets the service base URL.</summary>
         public string BaseUrl => this._document.BaseUrl;

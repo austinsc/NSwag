@@ -14,11 +14,11 @@ using NSwag.CodeGeneration.Models;
 namespace NSwag.CodeGeneration.JavaScript.Models
 {
     /// <summary>The TypeScript response model.</summary>
-    public class TypeScriptResponseModel : ResponseModelBase
+    public class JavaScriptResponseModel : ResponseModelBase
     {
         private readonly SwaggerToJavaScriptClientGeneratorSettings _settings;
 
-        /// <summary>Initializes a new instance of the <see cref="TypeScriptResponseModel" /> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="JavaScriptResponseModel" /> class.</summary>
         /// <param name="operationModel">The operation model.</param>
         /// <param name="operation">The operation.</param>
         /// <param name="statusCode">The status code.</param>
@@ -28,7 +28,7 @@ namespace NSwag.CodeGeneration.JavaScript.Models
         /// <param name="generator">The generator.</param>
         /// <param name="resolver">The resolver.</param>
         /// <param name="settings">The settings.</param>
-        public TypeScriptResponseModel(IOperationModel operationModel, SwaggerOperation operation, string statusCode, SwaggerResponse response, bool isPrimarySuccessResponse, 
+        public JavaScriptResponseModel(IOperationModel operationModel, SwaggerOperation operation, string statusCode, SwaggerResponse response, bool isPrimarySuccessResponse, 
             JsonSchema4 exceptionSchema, IClientGenerator generator, TypeResolverBase resolver, SwaggerToJavaScriptClientGeneratorSettings settings) 
             : base(operationModel, operation, statusCode, response, isPrimarySuccessResponse, exceptionSchema, resolver, settings.TypeScriptGeneratorSettings, generator)
         {

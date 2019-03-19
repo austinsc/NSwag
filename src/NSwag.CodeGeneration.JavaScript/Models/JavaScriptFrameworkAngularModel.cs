@@ -9,11 +9,11 @@
 namespace NSwag.CodeGeneration.JavaScript.Models
 {
     /// <summary>Angular specific information.</summary>
-    public class TypeScriptFrameworkAngularModel
+    public class JavaScriptFrameworkAngularModel
     {
         private readonly SwaggerToJavaScriptClientGeneratorSettings _settings;
 
-        internal TypeScriptFrameworkAngularModel(SwaggerToJavaScriptClientGeneratorSettings settings)
+        internal JavaScriptFrameworkAngularModel(SwaggerToJavaScriptClientGeneratorSettings settings)
         {
             this._settings = settings;
         }

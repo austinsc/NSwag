@@ -14,18 +14,18 @@ using NSwag.CodeGeneration.Models;
 namespace NSwag.CodeGeneration.JavaScript.Models
 {
     /// <summary>The TypeScript operation model.</summary>
-    public class TypeScriptOperationModel : OperationModelBase<TypeScriptParameterModel, TypeScriptResponseModel>
+    public class JavaScriptOperationModel : OperationModelBase<JavaScriptParameterModel, JavaScriptResponseModel>
     {
         private readonly SwaggerToJavaScriptClientGeneratorSettings _settings;
         private readonly SwaggerToJavaScriptClientGenerator _generator;
         private readonly SwaggerOperation _operation;
 
-        /// <summary>Initializes a new instance of the <see cref="TypeScriptOperationModel" /> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="JavaScriptOperationModel" /> class.</summary>
         /// <param name="operation">The operation.</param>
         /// <param name="settings">The settings.</param>
         /// <param name="generator">The generator.</param>
         /// <param name="resolver">The resolver.</param>
-        public TypeScriptOperationModel(
+        public JavaScriptOperationModel(
             SwaggerOperation operation,
             SwaggerToJavaScriptClientGeneratorSettings settings,
             SwaggerToJavaScriptClientGenerator generator,
@@ -46,7 +46,7 @@ namespace NSwag.CodeGeneration.JavaScript.Models
             }
 
             this.Parameters = parameters.Select(parameter =>
-                new TypeScriptParameterModel(parameter.Name,
+                new JavaScriptParameterModel(parameter.Name,
                     this.GetParameterVariableName(parameter, this._operation.Parameters), this.ResolveParameterType(parameter),
                     parameter, parameters, this._settings, this._generator, resolver))
                 .ToList();
@@ -177,10 +177,10 @@ namespace NSwag.CodeGeneration.JavaScript.Models
         /// <param name="resolver">The resolver.</param>
         /// <param name="settings">The settings.</param>
         /// <returns></returns>
-        protected override TypeScriptResponseModel CreateResponseModel(SwaggerOperation operation, string statusCode, SwaggerResponse response,
+        protected override JavaScriptResponseModel CreateResponseModel(SwaggerOperation operation, string statusCode, SwaggerResponse response,
             JsonSchema4 exceptionSchema, IClientGenerator generator, TypeResolverBase resolver, ClientGeneratorBaseSettings settings)
         {
-            return new TypeScriptResponseModel(this, operation, statusCode, response, response == this.GetSuccessResponse().Value,
+            return new JavaScriptResponseModel(this, operation, statusCode, response, response == this.GetSuccessResponse().Value,
                 exceptionSchema, generator, resolver, (SwaggerToJavaScriptClientGeneratorSettings)settings);
         }
     }

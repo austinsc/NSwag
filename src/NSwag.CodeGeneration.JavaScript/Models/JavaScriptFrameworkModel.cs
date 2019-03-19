@@ -11,16 +11,16 @@ using NJsonSchema.CodeGeneration.TypeScript;
 namespace NSwag.CodeGeneration.JavaScript.Models
 {
     /// <summary>Framework specific information.</summary>
-    public class TypeScriptFrameworkModel
+    public class JavaScriptFrameworkModel
     {
         private readonly SwaggerToJavaScriptClientGeneratorSettings _settings;
 
-        internal TypeScriptFrameworkModel(SwaggerToJavaScriptClientGeneratorSettings settings)
+        internal JavaScriptFrameworkModel(SwaggerToJavaScriptClientGeneratorSettings settings)
         {
             this._settings = settings;
 
-            this.RxJs = new TypeScriptFrameworkRxJsModel(this);
-            this.Angular = new TypeScriptFrameworkAngularModel(settings);
+            this.RxJs = new JavaScriptFrameworkRxJsModel(this);
+            this.Angular = new JavaScriptFrameworkAngularModel(settings);
         }
 
         /// <summary>Gets a value indicating whether the generated code is for Angular 2.</summary>
@@ -56,9 +56,9 @@ namespace NSwag.CodeGeneration.JavaScript.Models
         public bool UseRxJs6 => this._settings.RxJsVersion >= 6.0m;
 
         /// <summary>Gets Rxjs information.</summary>
-        public TypeScriptFrameworkRxJsModel RxJs { get; }
+        public JavaScriptFrameworkRxJsModel RxJs { get; }
 
         /// <summary>Gets Angular information.</summary>
-        public TypeScriptFrameworkAngularModel Angular { get; set; }
+        public JavaScriptFrameworkAngularModel Angular { get; set; }
     }
 }

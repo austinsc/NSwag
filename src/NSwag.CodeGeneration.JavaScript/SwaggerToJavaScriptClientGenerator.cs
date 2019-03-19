@@ -16,7 +16,7 @@ using NSwag.CodeGeneration.JavaScript.Models;
 namespace NSwag.CodeGeneration.JavaScript
 {
     /// <summary>Generates the CSharp service client code. </summary>
-    public class SwaggerToJavaScriptClientGenerator : ClientGeneratorBase<TypeScriptOperationModel, TypeScriptParameterModel, TypeScriptResponseModel>
+    public class SwaggerToJavaScriptClientGenerator : ClientGeneratorBase<JavaScriptOperationModel, JavaScriptParameterModel, JavaScriptResponseModel>
     {
         private readonly SwaggerDocument _document;
         private readonly TypeScriptTypeResolver _resolver;
@@ -97,8 +97,8 @@ namespace NSwag.CodeGeneration.JavaScript
         /// <returns>The code.</returns>
         protected override string GenerateFile(string clientCode, IEnumerable<string> clientClasses, ClientGeneratorOutputType outputType)
         {
-            var model = new TypeScriptFileTemplateModel(clientCode, clientClasses, this._document, this._extensionCode, this.Settings, this._resolver);
-            var template = this.BaseSettings.CodeGeneratorSettings.TemplateFactory.CreateTemplate("TypeScript", "File", model);
+            var model = new JavaScriptFileTemplateModel(clientCode, clientClasses, this._document, this._extensionCode, this.Settings, this._resolver);
+            var template = this.BaseSettings.CodeGeneratorSettings.TemplateFactory.CreateTemplate("JavaScript", "File", model);
             return template.Render();
         }
 
@@ -108,11 +108,11 @@ namespace NSwag.CodeGeneration.JavaScript
         /// <param name="operations">The operations.</param>
         /// <param name="outputType">Type of the output.</param>
         /// <returns>The code.</returns>
-        protected override string GenerateClientClass(string controllerName, string controllerClassName, IList<TypeScriptOperationModel> operations, ClientGeneratorOutputType outputType)
+        protected override string GenerateClientClass(string controllerName, string controllerClassName, IList<JavaScriptOperationModel> operations, ClientGeneratorOutputType outputType)
         {
             this.UpdateUseDtoClassAndDataConversionCodeProperties(operations);
 
-            var model = new TypeScriptClientTemplateModel(controllerName, controllerClassName, operations, this._extensionCode, this._document, this.Settings);
+            var model = new JavaScriptClientTemplateModel(controllerName, controllerClassName, operations, this._extensionCode, this._document, this.Settings);
             var template = this.Settings.CreateTemplate(model);
             return template.Render();
         }
@@ -121,12 +121,12 @@ namespace NSwag.CodeGeneration.JavaScript
         /// <param name="operation"></param>
         /// <param name="settings">The settings.</param>
         /// <returns>The operation model.</returns>
-        protected override TypeScriptOperationModel CreateOperationModel(SwaggerOperation operation, ClientGeneratorBaseSettings settings)
+        protected override JavaScriptOperationModel CreateOperationModel(SwaggerOperation operation, ClientGeneratorBaseSettings settings)
         {
-            return new TypeScriptOperationModel(operation, (SwaggerToJavaScriptClientGeneratorSettings)settings, this, this.Resolver);
+            return new JavaScriptOperationModel(operation, (SwaggerToJavaScriptClientGeneratorSettings)settings, this, this.Resolver);
         }
 
-        private void UpdateUseDtoClassAndDataConversionCodeProperties(IEnumerable<TypeScriptOperationModel> operations)
+        private void UpdateUseDtoClassAndDataConversionCodeProperties(IEnumerable<JavaScriptOperationModel> operations)
         {
             // TODO: Remove this method => move to appropriate location
 

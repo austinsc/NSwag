@@ -9,11 +9,11 @@
 namespace NSwag.CodeGeneration.JavaScript.Models
 {
     /// <summary>RxJs specific information.</summary>
-    public class TypeScriptFrameworkRxJsModel
+    public class JavaScriptFrameworkRxJsModel
     {
-        private readonly TypeScriptFrameworkModel _model;
+        private readonly JavaScriptFrameworkModel _model;
 
-        internal TypeScriptFrameworkRxJsModel(TypeScriptFrameworkModel model)
+        internal JavaScriptFrameworkRxJsModel(JavaScriptFrameworkModel model)
         {
             this._model = model;
         }
